@@ -73,3 +73,20 @@ kubectl get deploy
 kubectl get replicaset -o wide
 
 
+
+## run kube pod by command line
+kubectl run --image=mmumshad/simple-webapp-color \
+--env="APP_COLOR=red" \
+--restart=Never \
+simple-webapp-color
+
+
+## run kube deployment by command line
+kubectl create deployment --image=nginx:1.18.0 nginx-deployment
+
+
+## scale deployment 
+kubectl scale --replicas=2 deployment/nginx-deployment
+
+## change deployment based image
+kubectl set image deployment/nginx-deployment nginx=nginx
